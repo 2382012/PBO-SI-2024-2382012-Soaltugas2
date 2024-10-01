@@ -1,6 +1,7 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class HitungBangunDatar {
+public class soalTugas2 {
 
     public static int hitungLuasPersegi(int sisi) {
         return sisi * sisi;
@@ -29,48 +30,52 @@ public class HitungBangunDatar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Pilih bangun datar:");
-        System.out.println("1. Persegi");
-        System.out.println("2. Persegi Panjang");
-        System.out.println("3. Lingkaran");
+        try {
+            System.out.println("Pilih bangun datar:");
+            System.out.println("1. Persegi");
+            System.out.println("2. Persegi Panjang");
+            System.out.println("3. Lingkaran");
 
-        System.out.print("Masukkan pilihan Anda: ");
-        int pilihan = scanner.nextInt();
+            System.out.print("Masukkan pilihan Anda: ");
+            int pilihan = scanner.nextInt();
 
-        switch (pilihan) {
-            case 1:
-                System.out.print("Masukkan sisi persegi: ");
-                int sisi = scanner.nextInt();
-                int luasPersegi = hitungLuasPersegi(sisi);
-                int kelilingPersegi = hitungKelilingPersegi(sisi);
-                System.out.println("Luas persegi: " + luasPersegi);
-                System.out.println("Keliling persegi: " + kelilingPersegi);
-                break;
+            switch (pilihan) {
+                case 1:
+                    System.out.print("Masukkan sisi persegi: ");
+                    int sisi = scanner.nextInt();
+                    int luasPersegi = hitungLuasPersegi(sisi);
+                    int kelilingPersegi = hitungKelilingPersegi(sisi);
+                    System.out.println("Luas persegi: " + luasPersegi);
+                    System.out.println("Keliling persegi: " + kelilingPersegi);
+                    break;
 
-            case 2:
-                System.out.print("Masukkan panjang persegi panjang: ");
-                int panjang = scanner.nextInt();
-                System.out.print("Masukkan lebar persegi panjang: ");
-                int lebar = scanner.nextInt();
-                int luasPersegiPanjang = hitungLuasPersegiPanjang(panjang, lebar);
-                int kelilingPersegiPanjang = hitungKelilingPersegiPanjang(panjang, lebar);
-                System.out.println("Luas persegi panjang: " + luasPersegiPanjang);
-                System.out.println("Keliling persegi panjang: " + kelilingPersegiPanjang);
-                break;
+                case 2:
+                    System.out.print("Masukkan panjang persegi panjang: ");
+                    int panjang = scanner.nextInt();
+                    System.out.print("Masukkan lebar persegi panjang: ");
+                    int lebar = scanner.nextInt();
+                    int luasPersegiPanjang = hitungLuasPersegiPanjang(panjang, lebar);
+                    int kelilingPersegiPanjang = hitungKelilingPersegiPanjang(panjang, lebar);
+                    System.out.println("Luas persegi panjang: " + luasPersegiPanjang);
+                    System.out.println("Keliling persegi panjang: " + kelilingPersegiPanjang);
+                    break;
 
-            case 3:
-                System.out.print("Masukkan jari-jari lingkaran: ");
-                double jariJari = scanner.nextDouble();
-                double luasLingkaran = hitungLuasLingkaran(jariJari);
-                double kelilingLingkaran = hitungKelilingLingkaran(jariJari);
-                System.out.println("Luas lingkaran: " + luasLingkaran);
-                System.out.println("Keliling lingkaran: " + kelilingLingkaran);
-                break;
+                case 3:
+                    System.out.print("Masukkan jari-jari lingkaran: ");
+                    double jariJari = scanner.nextDouble();
+                    double luasLingkaran = hitungLuasLingkaran(jariJari);
+                    double kelilingLingkaran = hitungKelilingLingkaran(jariJari);
+                    System.out.println("Luas lingkaran: " + luasLingkaran);
+                    System.out.println("Keliling lingkaran: " + kelilingLingkaran);
+                    break;
 
-            default:
-                System.out.println("Pilihan tidak valid!");
+                default:
+                    System.out.println("Pilihan tidak valid!");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Input tidak valid, silakan masukkan angka yang benar.");
+        } finally {
+            scanner.close();
         }
-
-        scanner.close();
     }
 }
